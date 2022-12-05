@@ -5,20 +5,6 @@ use std::path::Path;
 
 fn main() {
 
-    part_one_and_two();
- 
-}
-
-
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where P: AsRef<Path>, {
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
-}
-
-
-fn part_one_and_two() {
-
     let mut full_overlaps    = 0u32;
     let mut partial_overlaps = 0u32;
 
@@ -57,6 +43,12 @@ fn part_one_and_two() {
     // Part 2
     println!("Part 2");
     println!("{} ranges overlap partially.", partial_overlaps);
-    
+ 
 }
 
+
+fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
+where P: AsRef<Path>, {
+    let file = File::open(filename)?;
+    Ok(io::BufReader::new(file).lines())
+}
